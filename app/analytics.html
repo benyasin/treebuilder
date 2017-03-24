@@ -1,0 +1,270 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jointx</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" type="text/css" href="styles/joint.css"/>
+  <link rel="stylesheet" type="text/css" href="styles/fonts/iconfont.css"/>
+  <link rel="stylesheet" type="text/css" href="styles/analytics.css"/>
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<section id="container">
+  <aside class="left-aside stencil">
+    <div class="left-aside-toggle open"><span><i class="icon iconfont">
+      &#xe64f;</i></span>
+    </div>
+    <nav class="prods">
+      <ul>
+        <li>
+          <span><i class="icon iconfont"></i></span>
+          <span class="stretched" title="HTML节点">HTML节点</span>
+          <ul style="display: block;">
+            <li>
+              <div class="prod" draggable="true" id="2000" data-model="otree.node" data-tpl="single"><span><i
+                class="icon iconfont">
+                </i></span><span class="stretched" title="单分支">单分支</span></div>
+            </li>
+            <li style="display: none;">
+              <div class="prod" draggable="true" id="1999" data-model="btree.node" data-tpl="twins"><span><i
+                class="icon iconfont">
+                </i></span><span class="stretched" title="双分支">双分支</span></div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <span><i class="icon iconfont"></i></span>
+          <span class="stretched" title="SVG节点">SVG节点</span>
+          <ul style="display: block;">
+            <li>
+              <div class="prod" draggable="true" id="1998" data-model="otree.node">
+                <svg xmlns="http://www.w3.org/2000/svg" width="150" height="60" class="stretched svg-prod">
+                  <g class="shapes" width="140" height="60">
+                    <rect width="120" height="60" x="0" rx="2" ry="2" fill="rgba(117, 77, 77, 0.65)"></rect>
+                    <text font-size="12" class="editable" x="36" y="30" height="60" width="120" fill="#fff">矩形节点</text>
+                  </g>
+                </svg>
+              </div>
+            </li>
+            <li>
+              <div class="prod" draggable="true" id="1997" data-model="otree.node">
+                <svg xmlns="http://www.w3.org/2000/svg" width="150" height="60" class="stretched svg-prod">
+                  <g class="shapes" width="140" height="60">
+                    <ellipse cx="60" cy="30" rx="60" ry="30" fill="rgba(64, 114, 117, 0.69)"></ellipse>
+                    <text font-size="12" x="36" y="32" height="35" width="120" fill="#fff">椭圆节点</text>
+                  </g>
+                </svg>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!--left aside-->
+  <article class="content">
+
+    <nav class="nav-tabs">
+      <div class="tabs">
+        <span class="dropdown-toggle" data-model="otree"><label>组织树</label><i class="icon iconfont">&#xe652;</i>
+        <ul class="dropdown-menu">
+          <li>
+            <span data-model="btree">二叉树</span>
+          </li>
+        </ul>
+        </span>
+        <em></em>
+      </div>
+
+      <!-- version template will be compiled to here -->
+
+      <ul class="actions">
+        <li class="action adapt"><i class="icon iconfont">&#xe665;</i><label class="tip">适应画布</label></li>
+        <li class="action practical"><i class="icon iconfont">&#xe660;</i><label class="tip">原始比例</label></li>
+
+        <li class="action reduce"><i class="icon iconfont">&#xe650;</i><label class="tip">缩小</label></li>
+        <li class="action enlarge"><i class="icon iconfont">&#xe64a;</i><label class="tip">放大</label></li>
+
+        <li class="action separate">|</li>
+
+        <li class="action selected choice"><i class="icon iconfont">&#xe663;</i><label class="tip">选择节点</label></li>
+        <li class="action move"><i class="icon iconfont">&#xe662;</i><label class="tip">移动画布</label></li>
+
+        <li class="action separate">|</li>
+
+        <li class="action intelligence">
+          <span><i class="icon iconfont">&#xe642;</i></span><span>自动演示</span><span><i
+          class="icon config iconfont">&#xe652;</i></span>
+          <div class="dropdown-config">
+            <div><label for="depth">最大决策深度</label>：
+              <input id="depth" type="text" value="4"/></div>
+            <div class="progress">
+              <input id="maxDepth" type="range" max="10" min="1" step="1"/>
+            </div>
+            <div><label for="coverage">节点覆盖率最小值</label>：
+              <input id="coverage" type="text" value="4"/> %
+            </div>
+            <div class="progress">
+              <input id="minCoverage" type="range" min="1" max="15" step="1"/>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- nav-tab-->
+
+    <div class="tab-content">
+      <div class="background">
+        <div class="panel" id="paper">
+
+        </div>
+      </div>
+
+      <aside class="right-aside">
+        <div class="right-aside-toggle"><span><i class="icon iconfont">&#xe64f;</i></span>
+        </div>
+        <div class="decision-effect">
+          <div class="aside-title" title="模型配置"><span><i class="icon iconfont">&#xe657;</i></span></div>
+          <div class="aside-content stretched">
+            <div class="group" data-name="connection">
+              <div class="field" data-field="attrs/.connection/stroke-width">
+                <form onchange="$(this).find('output').text(range.value)">
+                  <label for="range">线宽: (
+                    <output>3</output>
+                    px)</label>
+                  <input type="range" id="range" class="range" name="range" data-type="range"
+                         data-attribute="attrs/.connection/stroke-width" min="1" max="10" step="1" value="3">
+                </form>
+              </div>
+              <div class="field" style="display: none" data-field="smooth"><label for="smooth">平滑:</label>
+                <div class="toggle">
+                  <input type="checkbox" checked="checked" id="smooth" data-type="toggle" data-attribute="smooth">
+                  <span><i></i></span>
+                </div>
+              </div>
+              <div class="field" data-field="rouned"><label for="rounded">圆角:</label>
+                <div class="toggle">
+                  <input type="checkbox" checked="checked" id="rounded" data-type="toggle" data-attribute="rounded">
+                  <span><i></i></span>
+                </div>
+              </div>
+              <div class="field" data-field="direction"><label for="direction">方向:</label>
+                <select id="direction" class="ui dropdown">
+                  <option value="B">自上至下</option>
+                  <option value="R">自左至右</option>
+                </select>
+              </div>
+              <div class="field" data-field="relayout">
+                <button id="relayout" class="btn btn-success btn-sm">重排序</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="node-property">
+          <div>
+            <div class="aside-title" title="节点配置"><span><i class="icon iconfont">&#xe658;</i></span></div>
+            <div class="aside-content stretched">
+            </div>
+          </div>
+        </div>
+      </aside>
+      <!--right aside-->
+    </div>
+    <!-- div.tab-content-->
+  </article>
+  <!--article-->
+</section>
+<!--section -->
+
+<!-- single分支模板 -->
+<!-- 根据模板类添加节点，为提高性能，不采用先渲染DOM再计算宽高的模式，而是直接在模板上指定宽高 -->
+<script id="single" data-width="140" data-height="84" type="text/x-handlebars-template">
+  <div class="node">
+    <div class="head">
+      <i class="icon config iconfont">&#xe641;</i>
+      <input type="text" class="title editable" maxlength="5" value="{{fixWidth desc 10}}"/>
+      <i class="icon delete iconfont">&#xe646;</i>
+    </div>
+    <div class="branches">
+      <div class="branch center">
+        <div class="config" title="rule">
+          <input type="text" class="editable" value="规则" maxlength="8"/>
+          <i class="icon iconfont recommend">&#xe64d;</i>
+        </div>
+        <div class="distribution">
+          <div class="progress">
+            <div class="progress-bar"
+                 style="width:40%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- twins分支模板 -->
+<!-- 根据模板类添加节点，为提高性能，不采用先渲染DOM再计算宽高的模式，而是直接在模板上指定宽高 -->
+<script id="twins" data-width="140" data-height="80" type="text/x-handlebars-template">
+  <div class="node">
+    <div class="head">
+      <i class="icon config iconfont">&#xe641;</i>
+      <input type="text" class="title editable" maxlength="5" value="{{fixWidth desc 10}}"/>
+      <i class="icon delete iconfont">&#xe646;</i>
+    </div>
+    <div class="branches">
+      <div class="branch left">
+        <div class="config" title="rule">
+          <input type="text" class="editable" maxlength="8" value="规则1"/>
+          <i class="icon iconfont recommend">&#xe64d;</i>
+        </div>
+        <div class="distribution">
+          <div class="progress">
+            <div class="progress-bar"
+                 style="width:60%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="branch right">
+        <div class="config" title="rule">
+          <input type="text" class="editable" maxlength="8" value="规则2"/>
+          <i class="icon iconfont recommend">&#xe64d;</i>
+        </div>
+        <div class="distribution">
+          <div class="progress">
+            <div class="progress-bar"
+                 style="width:40%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<script src="scripts/jquery.min.js"></script>
+
+<script src="scripts/lodash.min.js"></script>
+<script src="scripts/backbone-min.js"></script>
+<script src="scripts/joint.min.js"></script>
+<script src="scripts/handlebars.min.js"></script>
+
+<script src="scripts/helper.js"></script>
+
+<script src="scripts/joint.extend/joint.layout.TreeLayout.js"></script>
+<script src="scripts/joint.extend/joint.shapes.btree.js"></script>
+<script src="scripts/joint.extend/joint.shapes.otree.js"></script>
+<script src="scripts/joint.extend/joint.ui.TextEditor.js"></script>
+<script src="scripts/jointx.js"></script>
+<script src="scripts/analytics.js"></script>
+</body>
+</html>

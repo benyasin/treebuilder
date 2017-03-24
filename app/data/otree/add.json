@@ -1,0 +1,20 @@
+{
+  "nodes": [
+    {
+      "active": true,
+      "calc": false,
+      "colName": "score_1",
+      "desc": "芝麻分",
+      "level": 0,
+      "id": "",
+      "pid": "",
+      "pindex": 0,
+      "root": false,
+      "sampleCount": 83,
+      "samplePercent": 0.0829170829170829,
+      "sourceId": "1999",
+      "model": "otree.node",
+      "template":"single"
+    }
+  ]
+}

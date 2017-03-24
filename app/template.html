@@ -1,0 +1,59 @@
+  <div class="node">
+    <div class="head">
+      <i class="icon config iconfont">&#xe641;</i>
+      <label class="title" data-name="">产品</label>
+      <i class="icon delete iconfont">&#xe646;</i>
+    </div>
+    <div class="branches">
+      <div class="branch center">
+        <div class="config" title="rule">
+          <label>规则</label>
+          <i class="icon iconfont recommend">&#xe64d;</i>
+        </div>
+        <div class="distribution">
+          <div class="progress">
+            <div class="progress-bar"
+                 style="width:40%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- twins分支模板 -->
+<!-- 根据模板类添加节点，为提高性能，不采用先渲染DOM再计算宽高的模式，而是直接在模板上指定宽高 -->
+<script id="twins" data-width="140" data-height="80" type="text/x-handlebars-template">
+  <div class="node">
+    <div class="head">
+      <i class="icon config iconfont">&#xe641;</i>
+      <label class="title" data-name="{{name}}">{{fixWidth desc 10}}</label>
+      <i class="icon delete iconfont">&#xe646;</i>
+    </div>
+    <div class="branches">
+      <div class="branch left">
+        <div class="config" title="rule">
+          <label>规则1</label>
+          <i class="icon iconfont recommend">&#xe64d;</i>
+        </div>
+        <div class="distribution">
+          <div class="progress">
+            <div class="progress-bar"
+                 style="width:60%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="branch right">
+        <div class="config" title="rule">
+          <label>规则2</label>
+          <i class="icon iconfont recommend">&#xe64d;</i>
+        </div>
+        <div class="distribution">
+          <div class="progress">
+            <div class="progress-bar"
+                 style="width:40%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
